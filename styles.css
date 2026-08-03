@@ -1,0 +1,988 @@
+/* ==========================================================================
+   Murph Family Connection — Event Companion Site
+   Shared design system
+   Palette inspired by the 2026 event shirt (not a reproduction of the artwork)
+   ========================================================================== */
+
+:root {
+  /* Brand palette — sampled directly from the 2026 event shirt photo
+     ("Stronger Together"), then lightly calibrated for on-screen contrast.
+     See BRAND_GUIDE.html / brand-guide.md for the sampling notes. */
+  --color-royal-blue: #0A6BC4;        /* sampled: shirt fabric */
+  --color-royal-blue-dark: #123F72;   /* calibrated: AA-safe text/link variant */
+  --color-deep-brown: #4A2E1F;        /* sampled: banner-fold shadow, warmed */
+  --color-warm-gold: #E3AC52;         /* sampled: leaf + banner gold */
+  --color-warm-gold-dark: #8C611D;    /* calibrated: AA-safe text variant of gold */
+  --color-warm-gold-light: #EFC98A;   /* tint for subtle backgrounds/hovers */
+  --color-forest-green: #38402F;      /* sampled: dark tree-leaf green */
+  --color-olive-green: #4B5240;       /* sampled: lighter tree-leaf green */
+  --color-ivory: #FBF6EB;
+  --color-ivory-alt: #F3EBDA;
+  --color-ivory-blue: #E9F1F9;   /* light blue-tinted alt section background (v1.3 blue-led direction) */
+
+  /* Semantic text / surface colors (contrast-checked against ivory) */
+  --color-ink: #2E2420;               /* sampled + color-cast-corrected: tree trunk ink */
+  --color-ink-soft: #4A4030;
+  --color-muted: #7A6E60;
+  --color-border: #DCD0B4;
+  --color-surface: #FFFFFF;
+  --color-focus: #123F72;
+
+  /* Typography — Playfair Display (headings) + Lora (body), loaded from
+     Google Fonts in each page <head>. System serif fallbacks keep the site
+     readable even if the web fonts fail to load. */
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Lora", Georgia, "Times New Roman", serif;
+
+  /* Layout */
+  --max-width: 1120px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --shadow-sm: 0 1px 3px rgba(42, 33, 23, 0.12);
+  --shadow-md: 0 4px 16px rgba(42, 33, 23, 0.14);
+}
+
+/* --------------------------------------------------------------------------
+   Reset & base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; display: block; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-royal-blue);
+  line-height: 1.15;
+  margin: 0 0 var(--space-2);
+}
+
+h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 900; color: var(--color-deep-brown); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+h3 { font-size: 1.25rem; }
+
+/* Subtle italic emphasis on part of an otherwise-unchanged approved phrase —
+   styling only, never used to alter or add to approved wording. */
+em.accent { font-style: italic; color: var(--color-warm-gold-dark); font-weight: 400; }
+
+p { margin: 0 0 var(--space-2); }
+
+a { color: var(--color-royal-blue); }
+a:hover { color: var(--color-royal-blue-dark); }
+
+/* Visible focus state everywhere — keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-royal-blue);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  z-index: 1000;
+  border-radius: 0 0 var(--radius-sm) 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Layout helpers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.section {
+  padding: var(--space-5) 0;
+}
+
+.section--alt {
+  background-color: var(--color-ivory-blue);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Blue page-header band — opens the Attendee Map and Family Tree Information
+   pages the same way the hero opens the Home page, so every page leads with
+   the same confident blue treatment. Body copy, cards, tables, and the form
+   stay on ivory/white for readability, per the approved blue-led direction. */
+.page-header {
+  padding: var(--space-5) 0 var(--space-4);
+  /* Same narrow dark-navy range as .hero — verified AA-safe for gold and
+     white text at every point on the gradient. */
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.035), transparent 40%),
+    linear-gradient(160deg, var(--color-royal-blue-dark) 0%, #0C2C4E 100%);
+  color: #fff;
+}
+.page-header .section-eyebrow { color: var(--color-warm-gold); }
+.page-header h1 { color: #fff; }
+.page-header p { color: rgba(255, 255, 255, 0.92); }
+.page-header .gold-rule--left {
+  background: linear-gradient(90deg, var(--color-warm-gold-dark), var(--color-warm-gold));
+}
+
+/* --------------------------------------------------------------------------
+   Natural / heritage-inspired accents
+   Subtle motifs drawn from the event shirt (tree, leaves, gold banding) —
+   used sparingly as section dividers and accents, never as page backgrounds.
+   -------------------------------------------------------------------------- */
+.leaf-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin: 0 auto;
+  max-width: 360px;
+  color: var(--color-warm-gold-dark);
+}
+
+.leaf-divider__line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-warm-gold), transparent);
+  border: none;
+}
+
+.leaf-divider__icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--color-olive-green);
+}
+
+.gold-rule {
+  border: none;
+  height: 3px;
+  width: 72px;
+  margin: var(--space-2) auto;
+  background: linear-gradient(90deg, var(--color-warm-gold-dark), var(--color-warm-gold));
+  border-radius: 999px;
+}
+
+.gold-rule--left {
+  margin: var(--space-2) 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-olive-green);
+  font-size: 0.8rem;
+}
+
+.section-eyebrow svg { width: 16px; height: 16px; }
+
+/* --------------------------------------------------------------------------
+   Header / Navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  background-color: var(--color-royal-blue-dark);
+  border-bottom: 3px solid var(--color-warm-gold);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.brand__mark {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background-color: var(--color-ivory);
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.brand__text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.brand__text span {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-warm-gold);
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.main-nav a {
+  position: relative;
+  border-bottom: 3px solid transparent;
+}
+
+.main-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.main-nav a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-weight: 700;
+  border-bottom-color: var(--color-warm-gold);
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  padding: var(--space-6) 0 var(--space-5);
+  text-align: center;
+  color: #fff;
+  /* Deliberately stays within a narrow dark-navy range (never the lighter
+     royal blue) so gold and white text keep AA contrast everywhere on the
+     gradient, at every breakpoint — verified programmatically. */
+  background:
+    radial-gradient(circle at 90% 8%, rgba(255, 255, 255, 0.035), transparent 40%),
+    radial-gradient(circle at 8% 92%, rgba(255, 255, 255, 0.035), transparent 40%),
+    linear-gradient(165deg, var(--color-royal-blue-dark) 0%, #0C2C4E 100%);
+}
+
+.hero__eyebrow {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-warm-gold);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-1);
+}
+
+.hero h1 { color: #fff; }
+.hero em.accent { color: var(--color-warm-gold); }
+
+.hero .leaf-divider__icon { color: var(--color-warm-gold); }
+.hero .leaf-divider__line { background: linear-gradient(90deg, transparent, rgba(227, 172, 82, 0.85), transparent); }
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.hero__body {
+  max-width: 680px;
+  margin: 0 auto var(--space-4);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Compact event snapshot on the home hero — a darker "frosted" panel nested
+   inside the blue hero, gold numbers, white labels. */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: rgba(9, 33, 58, 0.32);
+  max-width: 620px;
+  margin: 0 auto var(--space-3);
+}
+
+.hero-stat {
+  flex: 1 1 140px;
+  padding: var(--space-3) var(--space-3);
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat__num {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  color: var(--color-warm-gold);
+  line-height: 1;
+}
+
+.hero-stat__lbl {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.35rem;
+}
+
+/* "Stronger Together" — the shirt's own motto, used as a small badge */
+.motto-badge {
+  display: inline-block;
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-warm-gold);
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--color-warm-gold);
+  border-radius: 999px;
+}
+
+/* Give the hero's CTA buttons a touch more separation from the now-blue
+   background behind them. */
+.hero .big-button { border-color: rgba(255, 255, 255, 0.25); }
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-top: var(--space-3);
+}
+
+.big-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-width: 260px;
+  padding: var(--space-4) var(--space-4);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.big-button:hover,
+.big-button:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(42, 33, 23, 0.22);
+}
+
+.big-button__icon { font-size: 2.1rem; }
+
+.big-button--map {
+  background-color: var(--color-royal-blue);
+}
+.big-button--map:hover { background-color: var(--color-royal-blue-dark); }
+
+.big-button--tree {
+  background-color: var(--color-royal-blue-dark);
+}
+.big-button--tree:hover { background-color: #0C2C4E; }
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-royal-blue);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover { background-color: var(--color-royal-blue-dark); color: #fff; }
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-royal-blue-dark);
+  border: 2px solid var(--color-royal-blue);
+}
+.btn--outline:hover { background-color: var(--color-royal-blue); color: #fff; }
+
+/* --------------------------------------------------------------------------
+   Cards / panels
+   -------------------------------------------------------------------------- */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.card h3 {
+  color: var(--color-forest-green);
+  margin-bottom: 0.4rem;
+}
+
+.panel-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Stat tiles */
+.stat-grid {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-top: var(--space-3);
+}
+
+.stat-tile {
+  /* Same AA-verified dark-navy range as .hero/.page-header — never the
+     lighter royal blue, so the gold value and white label stay legible
+     everywhere on the card. */
+  background: linear-gradient(165deg, var(--color-royal-blue-dark) 0%, #0C2C4E 100%);
+  border: none;
+  border-top: 5px solid var(--color-warm-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-2) var(--space-3);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stat-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-tile__value {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 2.75rem);
+  font-weight: 900;
+  color: var(--color-warm-gold);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-tile__label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* Highlights list */
+.highlight-list {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.highlight-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background-color: #EBF4FF;
+  border-left: 5px solid var(--color-warm-gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-2) var(--space-3);
+}
+
+.highlight-list .hi-ico {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.highlight-list .hi-txt {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.highlight-list strong { color: var(--color-royal-blue-dark); }
+
+/* Pull quote — used sparingly for a single moment of warmth per page */
+.pull-quote {
+  margin: var(--space-3) auto;
+  padding: 1.4rem 1.75rem 1.4rem 2rem;
+  max-width: 620px;
+  border-left: 5px solid var(--color-warm-gold);
+  background-color: var(--color-warm-gold-light);
+  background-color: #FDF3DC;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-deep-brown);
+  line-height: 1.6;
+}
+
+/* Data note box */
+.notes-box {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.notes-box h3 {
+  font-size: 1.05rem;
+  color: var(--color-royal-blue);
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-warm-gold);
+  margin-bottom: var(--space-2);
+}
+
+.notes-dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.88rem;
+  margin-bottom: var(--space-2);
+}
+
+.notes-dl dt { color: var(--color-muted); font-style: italic; }
+.notes-dl dd { color: var(--color-ink); font-weight: 700; margin: 0; }
+
+.notes-prose {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+}
+
+.notes-prose strong { color: var(--color-ink); }
+
+/* Rank pills + share bars, used in the Community Rankings table */
+.rpill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: var(--color-royal-blue);
+  flex-shrink: 0;
+}
+
+.rpill.rpill--gold {
+  background-color: var(--color-warm-gold);
+  color: var(--color-deep-brown);
+}
+
+.bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bar-track {
+  height: 6px;
+  background-color: var(--color-border);
+  border-radius: 3px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background-color: var(--color-royal-blue);
+  border-radius: 3px;
+}
+
+.bar-pct {
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Maps
+   -------------------------------------------------------------------------- */
+.map-panel {
+  margin-top: var(--space-3);
+}
+
+.map-frame {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-royal-blue);
+  border-top: 4px solid var(--color-warm-gold);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.leaflet-map {
+  width: 100%;
+  height: 440px;
+}
+
+.leaflet-map.leaflet-map--tall { height: 520px; }
+
+.map-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin-top: var(--space-1);
+  font-style: italic;
+}
+
+/* Leaflet popup theming to match the site */
+.leaflet-popup-content-wrapper {
+  background-color: var(--color-surface) !important;
+  border: 1.5px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+.leaflet-popup-tip { background-color: var(--color-surface) !important; }
+.leaflet-popup-content {
+  font-family: var(--font-body) !important;
+  font-size: 0.85rem !important;
+  color: var(--color-ink) !important;
+  line-height: 1.55 !important;
+  margin: 10px 12px !important;
+}
+.map-popup__title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-royal-blue);
+  margin-bottom: 2px;
+}
+.map-popup__count { color: var(--color-forest-green); font-weight: 600; }
+.map-popup__state { color: var(--color-muted); font-size: 0.78rem; }
+
+.map-marker-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-royal-blue-dark);
+  background-color: rgba(251, 246, 235, 0.92);
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.map-loading,
+.map-error {
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--color-ink-soft);
+}
+
+.map-error {
+  color: #7A2E2E;
+  background-color: #FBEDEA;
+}
+
+.map-error a { color: var(--color-royal-blue-dark); font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   Tables
+   -------------------------------------------------------------------------- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.data-table caption {
+  caption-side: top;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-royal-blue);
+  padding-bottom: 0.6rem;
+  border-bottom: 3px solid var(--color-warm-gold);
+  margin-bottom: 0.4rem;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.data-table th {
+  background-color: var(--color-royal-blue);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.data-table tbody tr:nth-child(even) { background-color: var(--color-ivory-alt); }
+.data-table tbody tr:hover { background-color: #F0E6C8; }
+.data-table tbody tr.is-highlighted td:first-child {
+  font-weight: 700;
+  color: var(--color-forest-green);
+}
+
+/* --------------------------------------------------------------------------
+   Family Tree Information page
+   -------------------------------------------------------------------------- */
+.intro-copy {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-embed-wrap {
+  max-width: 760px;
+  margin: var(--space-4) auto 0;
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-top: 5px solid var(--color-warm-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+  box-shadow: var(--shadow-md);
+  /* Prevent the embed from ever forcing horizontal scroll on narrow screens */
+  overflow-x: hidden;
+  max-width: min(760px, 100%);
+}
+
+.form-embed-wrap iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 1400px;
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+.form-fallback {
+  text-align: center;
+  margin-top: var(--space-3);
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  line-height: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-royal-blue-dark);
+  color: #E6EEF6;
+  padding: var(--space-4) 0;
+  margin-top: var(--space-5);
+  border-top: 3px solid var(--color-warm-gold);
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+}
+
+.site-footer a { color: var(--color-warm-gold-light); }
+
+.site-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Brand Guide page
+   -------------------------------------------------------------------------- */
+.swatch-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  margin-top: var(--space-3);
+}
+
+.swatch {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-surface);
+}
+
+.swatch__chip {
+  height: 90px;
+}
+
+.swatch__meta {
+  padding: 0.6rem 0.9rem;
+}
+
+.swatch__name {
+  font-weight: 700;
+  display: block;
+}
+
+.swatch__hex {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+.swatch__note {
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+  margin-top: 0.2rem;
+}
+
+.type-sample {
+  margin-bottom: var(--space-2);
+}
+
+.type-sample__label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  color: var(--color-olive-green);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.spacing-scale {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-2);
+}
+
+.spacing-scale__item { text-align: center; font-size: 0.78rem; color: var(--color-ink-soft); }
+
+.spacing-scale__bar {
+  background-color: var(--color-royal-blue);
+  width: 24px;
+  border-radius: 3px;
+  margin: 0 auto 0.3rem;
+}
+
+.principle-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: var(--space-3);
+}
+
+.icon-sample-row {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: var(--space-2);
+}
+
+.icon-sample {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+}
+
+.icon-sample svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-olive-green);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .site-header__inner { flex-direction: column; align-items: flex-start; }
+  .main-nav ul { flex-wrap: wrap; }
+  .hero { padding: var(--space-5) 0 var(--space-4); }
+  .big-button { width: 100%; min-width: 0; }
+  .form-embed-wrap iframe { min-height: 1600px; }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
