@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "eventName": "Murph Family Connection",
+    "eventYear": 2026,
+    "eventDates": "August 7–9, 2026",
+    "eventLocation": "St. Matthews, South Carolina",
+    "sourceDocument": "2026 Murph Family Connection Attendee Report",
+    "lastUpdated": "2026-08-01",
+    "notes": "National map data is available at the state level only. South Carolina community-level data reflects the top 9 communities identified in the source report; 1 of the 112 South Carolina registrations is not attributed to a specific listed community in the source report and is shown separately as 'Other South Carolina communities'."
+  },
+  "statistics": {
+    "namedRegistrations": 179,
+    "mappedRegistrations": 160,
+    "unmappedRegistrations": 19,
+    "statesRepresented": 13,
+    "federalDistrictsRepresented": 1
+  },
+  "states": [
+    { "name": "South Carolina", "code": "SC", "fips": "45", "count": 112, "lat": 33.99, "lon": -81.05 },
+    { "name": "Virginia", "code": "VA", "fips": "51", "count": 14, "lat": 37.77, "lon": -78.17 },
+    { "name": "Georgia", "code": "GA", "fips": "13", "count": 10, "lat": 32.75, "lon": -83.50 },
+    { "name": "New York", "code": "NY", "fips": "36", "count": 6, "lat": 42.90, "lon": -75.50 },
+    { "name": "New Jersey", "code": "NJ", "fips": "34", "count": 5, "lat": 40.06, "lon": -74.40 },
+    { "name": "Connecticut", "code": "CT", "fips": "09", "count": 2, "lat": 41.60, "lon": -72.70 },
+    { "name": "Ohio", "code": "OH", "fips": "39", "count": 2, "lat": 40.30, "lon": -82.70 },
+    { "name": "Pennsylvania", "code": "PA", "fips": "42", "count": 2, "lat": 40.90, "lon": -77.80 },
+    { "name": "Washington", "code": "WA", "fips": "53", "count": 2, "lat": 47.40, "lon": -120.50 },
+    { "name": "Washington, D.C.", "code": "DC", "fips": "11", "count": 2, "isFederalDistrict": true, "lat": 38.90, "lon": -77.03 },
+    { "name": "Arizona", "code": "AZ", "fips": "04", "count": 1, "lat": 34.20, "lon": -111.60 },
+    { "name": "Florida", "code": "FL", "fips": "12", "count": 1, "lat": 28.60, "lon": -81.50 },
+    { "name": "Texas", "code": "TX", "fips": "48", "count": 1, "lat": 31.50, "lon": -99.30 }
+  ],
+  "southCarolinaCommunities": [
+    { "community": "St. Matthews", "count": 45, "lat": 33.6702, "lon": -80.7714, "highlight": true, "county": "Calhoun" },
+    { "community": "Orangeburg", "count": 37, "lat": 33.4918, "lon": -80.8557, "highlight": true, "county": "Orangeburg" },
+    { "community": "Columbia", "count": 7, "lat": 34.0007, "lon": -81.0348, "county": "Richland" },
+    { "community": "Irmo", "count": 6, "lat": 34.0857, "lon": -81.1834, "county": "Richland" },
+    { "community": "Hopkins", "count": 4, "lat": 33.9587, "lon": -80.9528, "county": "Richland" },
+    { "community": "Cordova", "count": 4, "lat": 33.4351, "lon": -80.7159, "county": "Orangeburg" },
+    { "community": "Greenville", "count": 4, "lat": 34.8526, "lon": -82.3940, "county": "Greenville" },
+    { "community": "North Charleston", "count": 2, "lat": 32.8546, "lon": -79.9748, "county": "Charleston" },
+    { "community": "Elgin", "count": 2, "lat": 34.1479, "lon": -80.7959, "county": "Kershaw" }
+  ],
+  "otherSouthCarolinaCount": 1,
+  "highlights": [
+    {
+      "icon": "📍",
+      "html": "<strong>South Carolina is the heart of the gathering</strong> — 112 of 179 named registrations, about 63%, are associated with South Carolina."
+    },
+    {
+      "icon": "🌳",
+      "html": "<strong>St. Matthews and Orangeburg lead the hometowns</strong> — together, the two communities account for 82 registrations, about 46% of the full list."
+    },
+    {
+      "icon": "🏆",
+      "html": "<strong>Virginia leads the out-of-state groups</strong>, with 14 registered attendees, followed by Georgia with 10."
+    },
+    {
+      "icon": "🗺️",
+      "html": "<strong>The gathering reaches coast to coast</strong> — registered attendees are listed from Washington State to Connecticut, and from Arizona and Texas to the East Coast."
+    }
+  ],
+  "dataNote": {
+    "summary": "The spreadsheet contains 179 named registrations. Location information is available for 160; 19 registrations do not currently include usable city and state information and are included in the overall registration total but not mapped.",
+    "stats": [
+      { "term": "Total Registrations", "value": "179" },
+      { "term": "Mapped Registrations", "value": "160" },
+      { "term": "Unmapped Registrations", "value": "19" },
+      { "term": "States + D.C.", "value": "13 states + 1 federal district" }
+    ]
+  }
+}

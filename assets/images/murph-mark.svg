@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="murphMarkTitle">
+  <title id="murphMarkTitle">Murph Family Connection mark</title>
+  <circle cx="32" cy="32" r="31" fill="#FBF6EB" stroke="#0A6BC4" stroke-width="2"/>
+  <path d="M32 46c0-8-9-10-9-18a9 9 0 0 1 18 0c0 8-9 10-9 18Z" fill="#38402F"/>
+  <path d="M32 46c0-6-6-8-6-14" fill="none" stroke="#4B5240" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M32 46c0-6 6-8 6-14" fill="none" stroke="#4B5240" stroke-width="1.4" stroke-linecap="round"/>
+  <rect x="29" y="45" width="6" height="9" rx="1.5" fill="#4A2E1F"/>
+  <circle cx="32" cy="17" r="4" fill="#E3AC52"/>
+</svg>
