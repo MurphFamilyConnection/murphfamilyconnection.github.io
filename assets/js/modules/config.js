@@ -29,7 +29,7 @@ export const CONFIG = {
      bundled locally — no CDN dependency for the county maps. */
   countyBoundariesUrl: "data/sc-counties.geojson",
   googleFormEmbedUrl:
-        "https://docs.google.com/forms/d/e/1FAIpQLSeItHpaK85JbTFFLekF9Le1uQW5dyUo7McaYl9_ihwMAfmg2A/viewform?embedded=true",
+              "https://docs.google.com/forms/d/e/1FAIpQLSdsiHzWz0LCN5-vCpN6HXMHo3keZMg1apgkGcZECA4inhAMsw/viewform?embedded=true",
   partials: {
     header: "assets/partials/header.html",
     footer: "assets/partials/footer.html"
