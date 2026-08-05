@@ -1,4 +1,4 @@
-# Family Tree Information — Google Form Specification
+# Family Tree Questionnaire — Google Form Specification
 
 This document specifies the Google Form embedded on `family-tree-information.html`.
 It is based on the approved genealogy card, with the approved contact-information
