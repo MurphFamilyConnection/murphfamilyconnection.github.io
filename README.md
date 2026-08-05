@@ -4,7 +4,7 @@ The official website for the 2026 Murph Family Connection (August 7–9, 2026,
 St. Matthews, South Carolina). It has two jobs:
 
 1. Show interactive attendee maps and registration statistics.
-2. Let family members submit Family Tree Information through an embedded
+2. Let family members submit Family Tree Questionnaire through an embedded
    Google Form.
 
 No database, login, or backend — just HTML, CSS, and JavaScript. Visual
@@ -19,7 +19,7 @@ This is a single, static, hosting-ready website. Every page is listed below.
 murph-family-connection/
 ├── index.html                        Home page
 ├── attendee-map.html                  Attendee Map page
-├── family-tree-information.html       Family Tree Information page (Google Form embed)
+├── family-tree-information.html       Family Tree Questionnaire page (Google Form embed)
 ├── brand-guide.html                   Live visual identity reference (palette, type, components)
 ├── brand-guide.md                     Same reference, as a portable document
 ├── google-form-specification.md       Full spec for the embedded Google Form
@@ -170,7 +170,7 @@ the official Murph Family Connection form after committee approval:
 3. Paste that URL into `googleFormEmbedUrl` in
    `assets/js/modules/config.js`.
 
-Nothing else needs to change. The Family Tree Information page should
+Nothing else needs to change. The Family Tree Questionnaire page should
 otherwise remain unchanged unless the committee updates the genealogy
 questions themselves (in which case, update `google-form-specification.md`
 to match).
