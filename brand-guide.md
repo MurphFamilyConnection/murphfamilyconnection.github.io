@@ -76,15 +76,7 @@ the site stays readable even offline or if the fonts fail to load:
 
 ## Navigation
 
-Exactly three items, always in this order: **Home, Attendee Map, Family
-Tree Information.** The header bar itself is now navy (Royal Blue Dark)
-with a 3px gold bottom border; the logo mark sits on its own small ivory
-circle so it stays legible on the dark bar. Nav links are white/85%,
-brighten to full white on hover, and the active page is shown with a
-subtle light overlay plus a gold underline. No dropdowns, no additional
-items, no sidebar — this is intentional and should not expand without a
-scope change. The nav bar wraps naturally on narrow screens (no hamburger
-menu needed at three items).
+Exactly three items, always in this order: **Home, Attendee Map, Family Tree Questionnaire.** The header bar itself is now navy (Royal Blue Dark) with a 3px gold bottom border; the logo mark sits on its own small ivory circle so it stays legible on the dark bar. Nav links are white/85%, brighten to full white on hover, and the active page is shown with a subtle light overlay plus a gold underline. No dropdowns, no additional items, no sidebar — this is intentional and should not expand without a scope change. The nav bar wraps naturally on narrow screens (no hamburger menu needed at three items).
 
 Every page opens with the same navy **page-header** band used for the
 hero (deep-navy gradient, white heading, gold eyebrow/rule) before
@@ -95,7 +87,7 @@ pages.
 ## Buttons
 
 - **Big buttons** (home page): rounded-pill corners, solid royal blue
-  (Attendee Map) or navy (Family Tree Information) fill, white text,
+  (Attendee Map) or navy (Family Tree Questionnaire) fill, white text,
   icon + label. Both CTAs are now in the blue family, distinguished by
   shade and icon rather than by switching to green. Lift on hover/focus.
 - **Standard button** (`.btn`): royal blue fill, white text, for form
@@ -198,8 +190,7 @@ spacing stays consistent as the site grows.
 
 ## Design Principles
 
-1. **Simple over clever.** Two jobs — explore the attendee map, contribute
-   family tree information. Resist adding features beyond that scope.
+1. **Simple over clever.** Two jobs — explore the attendee map, complete the family tree questionnaire. Resist adding features beyond that scope.
 2. **Inspired, not copied.** Colors and motifs are drawn from the event
    shirt; the artwork itself is never reproduced.
 3. **Warm, not corporate.** Rounded cards, serif headings, and a
