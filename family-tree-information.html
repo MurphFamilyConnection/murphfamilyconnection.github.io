@@ -17,51 +17,114 @@
 <div id="site-header"></div>
 
 <main id="main">
-  <section class="page-header">
-    <div class="container">
-      <div class="intro-copy">
-        <p class="section-eyebrow">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-4 3-8 7-8 12a8 8 0 0 0 8 8 8 8 0 0 0 8-8c0-5-4-9-8-12zm0 3.2c2.9 2.4 5.5 5.3 5.5 8.8A5.5 5.5 0 0 1 12 19.5V5.2z"/></svg>
-          Preserving Our Roots
-        </p>
+<section class="page-header">
+<div class="container">
+<div class="intro-copy">
+<p class="section-eyebrow">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-4 3-8 7-8 12a8 8 0 0 0 8 8 8 8 0 0 0 8-8c0-5-4-9-8-12zm0 3.2c2.9 2.4 5.5 5.3 5.5 8.8A5.5 5.5 0 0 1 12 19.5V5.2z"/></svg>
+Preserving Our Roots
+</p>
 <h1>Family Tree Questionnaire</h1>
-        <hr class="gold-rule">
-        <p>
-          Help us strengthen and expand the Murph Family Tree by sharing information about your direct
-          Murph bloodline. The information collected will help connect Murph family branches and preserve
-          our shared history for future generations.
-        </p>
-        <p>
-          <strong>Please provide information only for your direct Murph ancestral line.</strong>
-          Do not include spouses or relatives who married into the Murph family.
-        </p>
-      </div>
-    </div>
-  </section>
+<hr class="gold-rule">
+<p>
+Help us strengthen and expand the Murph Family Tree by sharing information about your direct
+Murph bloodline. The information collected will help connect Murph family branches and preserve
+our shared history for future generations.
+</p>
+<p>
+<strong>Please provide information only for your direct Murph ancestral line.</strong>
+Do not include spouses or relatives who married into the Murph family.
+</p>
+</div>
+</div>
+</section>
 
-  <section class="section">
-    <div class="container">
-      <!-- ================================================================
-           GOOGLE FORM EMBED
-           The form URL lives in ONE place: assets/js/modules/config.js
-           (CONFIG.googleFormEmbedUrl). To replace the development form with
-           the official Murph Family Connection form, edit that value only —
-           nothing here needs to change.
-           ================================================================ -->
-      <div class="form-embed-wrap">
-        <iframe
-          id="family-tree-form-frame"
-          title="Murph Family Connection — Family Tree Questionnaire"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
-      </div>
-      <p class="form-fallback">
-        <a class="btn btn--outline" id="family-tree-form-fallback-link" href="#" target="_blank" rel="noopener">Open the form in a new tab &nearr;</a>
-        <br>Having trouble viewing the form above? Use this button instead.
-      </p>
-    </div>
-  </section>
+<section class="section">
+<div class="container">
+<div class="preview-card" aria-labelledby="preview-card-heading">
+<div class="preview-card__intro">
+<p class="preview-card__lede" id="preview-card-heading">A preview of the information you'll be asked to provide.</p>
+</div>
+
+<div class="preview-card__section">
+<h2>Contact Information</h2>
+<div class="preview-field-grid">
+<div class="preview-field"><span class="preview-field__label">First Name</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Last Name</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Email Address</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Cell Number <em class="preview-field__optional">(optional)</em></span><span class="preview-field__line" aria-hidden="true"></span></div>
+</div>
+</div>
+
+<div class="preview-card__section">
+<h2>Direct Murph Bloodline</h2>
+<div class="preview-field-grid">
+<div class="preview-field"><span class="preview-field__label">Great-Great Grandfather</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Great-Great Grandmother</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Great-Grandfather</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Great-Grandmother</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Grandfather</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Grandmother</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Mother</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field"><span class="preview-field__label">Father</span><span class="preview-field__line" aria-hidden="true"></span></div>
+</div>
+</div>
+
+<div class="preview-card__section">
+<h2>Family Information</h2>
+<div class="preview-field-grid">
+<div class="preview-field"><span class="preview-field__label">Family Branch / Tree (Descendant of)</span><span class="preview-field__line" aria-hidden="true"></span></div>
+<div class="preview-field preview-field--wide"><span class="preview-field__label">Comments</span><span class="preview-field__line preview-field__line--tall" aria-hidden="true"></span></div>
+</div>
+</div>
+
+<div class="preview-card__section">
+<h2>Permission</h2>
+<label class="preview-permission">
+<input type="checkbox" disabled aria-disabled="true">
+<span>I understand that the information I provide may be used by the Murph Family Connection to help develop, preserve, and expand our family tree and related family history records.</span>
+</label>
+</div>
+
+<p class="preview-card__footnote">
+This is a preview only.<br>
+Your actual responses will be entered in the questionnaire below.
+</p>
+</div>
+
+<div class="section-divider">
+<span class="leaf-divider" aria-hidden="true">
+<hr class="leaf-divider__line">
+<span class="leaf-divider__icon leaf-divider__arrow">&#8595;</span>
+<hr class="leaf-divider__line">
+</span>
+<p class="section-divider__text">
+<strong>Begin Questionnaire</strong>
+When you're ready, complete the questionnaire below.
+</p>
+</div>
+
+<!-- ================================================================
+GOOGLE FORM EMBED
+The form URL lives in ONE place: assets/js/modules/config.js
+(CONFIG.googleFormEmbedUrl). To replace the development form with
+the official Murph Family Connection form, edit that value only —
+nothing here needs to change.
+================================================================ -->
+<div class="form-embed-wrap">
+<iframe
+id="family-tree-form-frame"
+title="Murph Family Connection — Family Tree Questionnaire"
+loading="lazy"
+referrerpolicy="strict-origin-when-cross-origin">
+</iframe>
+</div>
+<p class="form-fallback">
+<a class="btn btn--outline" id="family-tree-form-fallback-link" href="#" target="_blank" rel="noopener">Open the form in a new tab &nearr;</a>
+<br>Having trouble viewing the form above? Use this button instead.
+</p>
+</div>
+</section>
 </main>
 
 <div id="site-footer"></div>
