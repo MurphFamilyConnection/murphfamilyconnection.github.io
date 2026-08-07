@@ -1098,3 +1098,144 @@ Built entirely from existing tokens (color, type, radius, shadow, spacing).
   gap: 0.4rem;
   margin-top: var(--space-2);
 }
+
+/* --------------------------------------------------------------------------
+2026 Connection Resources — v1.5.2
+-------------------------------------------------------------------------- */
+.connection-resources__card {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: var(--space-2);
+}
+
+.connection-resources__card .btn {
+margin-top: auto;
+}
+
+/* Schedule of Activities — timeline-style cards */
+.timeline {
+display: flex;
+flex-direction: column;
+gap: var(--space-3);
+margin-top: var(--space-3);
+}
+
+.timeline-item {
+display: flex;
+gap: var(--space-3);
+background-color: var(--color-surface);
+border: 1px solid var(--color-border);
+border-radius: var(--radius-md);
+box-shadow: var(--shadow-sm);
+padding: var(--space-3);
+}
+
+.timeline-item__time {
+flex-shrink: 0;
+min-width: 132px;
+font-family: var(--font-heading);
+font-weight: 700;
+color: var(--color-royal-blue-dark);
+border-right: 2px solid var(--color-warm-gold);
+padding-right: var(--space-3);
+}
+
+.timeline-item__title {
+margin: 0 0 0.35rem;
+color: var(--color-forest-green);
+}
+
+.timeline-item__location {
+margin: 0.5rem 0 0;
+color: var(--color-muted);
+font-size: 0.92rem;
+line-height: 1.6;
+}
+
+.timeline-item__note {
+margin: 0.5rem 0 0;
+font-size: 0.92rem;
+}
+
+.timeline-item__note--emphasis {
+font-weight: 700;
+color: var(--color-warm-gold-dark);
+}
+
+@media (max-width: 640px) {
+.timeline-item {
+flex-direction: column;
+gap: var(--space-1);
+}
+.timeline-item__time {
+border-right: none;
+border-bottom: 2px solid var(--color-warm-gold);
+padding-right: 0;
+padding-bottom: 0.5rem;
+min-width: 0;
+}
+}
+
+.notes-list {
+margin: 0;
+padding-left: 1.2rem;
+}
+.notes-list li {
+margin-bottom: var(--space-2);
+}
+.notes-list li:last-child {
+margin-bottom: 0;
+}
+
+/* Family Worship Service — formal program layout */
+.worship-order {
+list-style: none;
+margin: var(--space-3) 0 0;
+padding: 0;
+}
+
+.worship-order li {
+display: flex;
+gap: var(--space-3);
+padding: var(--space-2) 0;
+border-bottom: 1px solid var(--color-border);
+}
+
+.worship-order li:last-child {
+border-bottom: none;
+}
+
+.worship-order__num {
+flex-shrink: 0;
+min-width: 1.75rem;
+font-family: var(--font-heading);
+font-weight: 700;
+color: var(--color-warm-gold-dark);
+}
+
+.worship-order__text {
+display: flex;
+flex-direction: column;
+}
+
+.worship-order__title {
+font-family: var(--font-heading);
+font-weight: 700;
+color: var(--color-royal-blue-dark);
+}
+
+.worship-order__role {
+font-style: italic;
+color: var(--color-muted);
+font-size: 0.92rem;
+margin-top: 0.15rem;
+}
+
+.pull-quote .worship-closing__citation {
+display: block;
+font-style: normal;
+font-size: 0.85rem;
+color: var(--color-muted);
+margin-top: 0.5rem;
+}
