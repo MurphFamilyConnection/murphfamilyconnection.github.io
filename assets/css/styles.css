@@ -1071,3 +1071,30 @@ Built entirely from existing tokens (color, type, radius, shadow, spacing).
 @media (max-width: 640px) {
   .preview-field-grid { grid-template-columns: 1fr; }
 }
+
+/* --------------------------------------------------------------------------
+   Stay Connected (Facebook) — v1.5.1
+   -------------------------------------------------------------------------- */
+.stay-connected__card {
+  max-width: 640px;
+  margin-top: var(--space-3);
+}
+
+.stay-connected__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-forest-green);
+}
+
+.stay-connected__icon {
+  color: var(--color-royal-blue);
+  flex-shrink: 0;
+}
+
+.stay-connected__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--space-2);
+}
