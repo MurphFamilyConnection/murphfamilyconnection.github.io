@@ -1073,11 +1073,21 @@ Built entirely from existing tokens (color, type, radius, shadow, spacing).
 }
 
 /* --------------------------------------------------------------------------
-   Stay Connected (Facebook) — v1.5.1
+   Stay Connected (Photo Share + Facebook) — v1.5.1 / v1.5.3
    -------------------------------------------------------------------------- */
-.stay-connected__card {
-  max-width: 640px;
+.stay-connected__grid {
   margin-top: var(--space-3);
+}
+
+.stay-connected__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.stay-connected__card .btn {
+  margin-top: auto;
 }
 
 .stay-connected__title {
